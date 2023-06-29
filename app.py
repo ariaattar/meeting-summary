@@ -3,6 +3,9 @@ import streamlit as st
 from langchain.chat_models import ChatAnthropic
 import os
 
+st.title("Meeting Summarizer")
+
+
 # Use the secrets dict to access the secret value
 api_key = st.secrets["ANTHROPIC_API_KEY"]
 os.environ["ANTHROPIC_API_KEY"] = api_key
