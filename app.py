@@ -3,7 +3,15 @@ import streamlit as st
 from langchain.chat_models import ChatAnthropic
 import os
 
-st.title("Meeting Summarizer")
+st.markdown("<h1 style='color: green;'>🍃 NBM Summarizer</h1>", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+.stTextInput input {
+    border-color: green !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 # Use the secrets dict to access the secret value
