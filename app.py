@@ -2,7 +2,7 @@ import streamlit as st
 from langchain.chat_models import ChatAnthropic
 import os
 
-st.markdown("<h1 style='color: green;'>🍃 NBM Summarizer</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: green;'>🍃 Meeting Summarizer</h1>", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
@@ -14,7 +14,7 @@ st.markdown("""
 
 password = st.text_input("Enter the password:", type="password")
 
-if password == st.secrets["PASSWORD"]:
+if password == st.secrets["PASSWORD_KEY"]:
     api_key = st.secrets["ANTHROPIC_API_KEY"]
     os.environ["ANTHROPIC_API_KEY"] = api_key
 
