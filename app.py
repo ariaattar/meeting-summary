@@ -1,5 +1,6 @@
 import streamlit as st
 from langchain.chat_models import ChatAnthropic
+from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 import os
@@ -31,8 +32,13 @@ if password == st.secrets["PASSWORD_KEY"]:
         HumanMessage,
         SystemMessage
     )
-    chat = ChatAnthropic(model="claude-instant-1.1-100k", max_tokens_to_sample=10000)
-
+    chat = ChatAnthropic(
+        model="claude-instant-1.1-100k", 
+        max_tokens_to_sample=10000,
+        streaming=True,
+        verbose=True,
+        callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
+    )
     transcript = st.text_input("Please enter your transcript: ")
     
     if transcript:
