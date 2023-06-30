@@ -31,7 +31,7 @@ if password == st.secrets["PASSWORD_KEY"]:
         HumanMessage,
         SystemMessage
     )
-    chat = ChatAnthropic(model="claude-instant-1.1-100k", max_tokens_to_sample=10000, streaming=True, callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+    chat = ChatAnthropic(model="claude-instant-1.1-100k", max_tokens_to_sample=10000)
 
     transcript = st.text_input("Please enter your transcript: ")
     
