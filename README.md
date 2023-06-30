@@ -1,2 +1,2 @@
-# This ones for the people
+# For the people
 
