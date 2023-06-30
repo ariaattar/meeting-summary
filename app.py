@@ -29,12 +29,12 @@ if password == st.secrets["PASSWORD_KEY"]:
         HumanMessage,
         SystemMessage
     )
-    chat = ChatAnthropic(model="claude-1.3-100k", max_tokens_to_sample=10000, stream=True)
+    chat = ChatAnthropic(model="claude-1.3-100k", max_tokens_to_sample=10000)
 
     transcript = st.text_input("Please enter your transcript: ")
 
     if transcript:
-        nbm_template = "Summarize this call in current state, future state, required capabilities and negative consequences format, make it detailed and business focused. Highlight all details mentioned in the call. Have at least 5 bullet points for each."
+        nbm_template = "Summarize this call in current state, future state, required capabilities and negative consequences format, make it detailed and business focused. Highlight all details mentioned in the call."
         messages = [
             HumanMessage(content=f"""{nbm_template},  \n\n {transcript}""")
         ]
