@@ -29,7 +29,7 @@ if password == st.secrets["PASSWORD_KEY"]:
         HumanMessage,
         SystemMessage
     )
-    chat = ChatAnthropic(model="claude-instant-1-100k", max_tokens_to_sample=10000)
+    chat = ChatAnthropic(model="claude-1.3-100k", max_tokens_to_sample=10000)
 
     transcript = st.text_input("Please enter your transcript: ")
 
