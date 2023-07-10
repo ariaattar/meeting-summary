@@ -54,9 +54,7 @@ if password == st.secrets["PASSWORD_KEY"]:
         
         Negative Consequences:
 
-        Roles: (If explained in the call)
-
-        Responsibilities: (If explained in the call)
+        Roles/Responsibilities:
         
         Format, make it detailed and business focused. Make sure you dont miss details mentioned in the call."""
         messages = [
