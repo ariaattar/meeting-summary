@@ -53,6 +53,10 @@ if password == st.secrets["PASSWORD_KEY"]:
         Required Capabilities:
         
         Negative Consequences:
+
+        Roles: (If explained in the call)
+
+        Responsibilities: (If explained in the call)
         
         Format, make it detailed and business focused. Make sure you dont miss details mentioned in the call."""
         messages = [
