@@ -20,7 +20,7 @@ api_key = st.secrets["ANTHROPIC_API_KEY"]
 os.environ["ANTHROPIC_API_KEY"] = api_key
 
 chat = ChatAnthropic(
-  model="claude-instant-1.1-100k",
+  model="claude-2",
   max_tokens_to_sample=1000,
   verbose=True,
   callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
