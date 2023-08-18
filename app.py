@@ -33,32 +33,24 @@ if password == st.secrets["PASSWORD_KEY"]:
         SystemMessage
     )
     chat = ChatAnthropic(
-        model="claude-instant-1.2", 
+        model="claude-1.2", 
         max_tokens_to_sample=10000,
         streaming=True,
         verbose=True,
         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     )
     transcript = st.text_input("Please enter your transcript: ")
+    question = st.text_input("Please enter your question: ")
+
     
-    if transcript:
-        nbm_template = """Summarize this call in
+    if transcript and question:
+        nbm_template = """
         
-        Current State: 
+        Based on this sales call help answer the users question
         
-        Future State: 
-        
-        Required Capabilities:
-        
-        Negative Consequences:
-
-        Roles/Responsibilities:
-
-        Next Steps:
-        
-        Format, make it detailed and business focused. Make sure you dont miss details mentioned in the call."""
+        ."""
         messages = [
-            HumanMessage(content=f"""{nbm_template},  \n\n {transcript}""")
+            HumanMessage(content=f"""{nbm_template},  \n\n {transcript}, \n\n {question}""")
         ]
         answer = chat(messages)
 
