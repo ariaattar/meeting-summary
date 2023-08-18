@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 from langchain.chat_models import ChatAnthropic
 from langchain.callbacks.manager import CallbackManager
@@ -35,7 +33,7 @@ if password == st.secrets["PASSWORD_KEY"]:
         SystemMessage
     )
     chat = ChatAnthropic(
-        model="claude-instant-1.1-100k", 
+        model="claude-instant-1.2", 
         max_tokens_to_sample=10000,
         streaming=True,
         verbose=True,
@@ -55,6 +53,8 @@ if password == st.secrets["PASSWORD_KEY"]:
         Negative Consequences:
 
         Roles/Responsibilities:
+
+        Next Steps:
         
         Format, make it detailed and business focused. Make sure you dont miss details mentioned in the call."""
         messages = [
