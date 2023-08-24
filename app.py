@@ -40,7 +40,7 @@ if password == st.secrets["PASSWORD_KEY"]:
         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     )
     transcript = st.text_input("Please enter your transcript: ")
-    question = st.text_input("Please enter your question: ")
+    question = st.text_area("Please enter your question: ")
 
     
     if transcript and question:
