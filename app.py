@@ -33,7 +33,8 @@ if password == st.secrets["PASSWORD_KEY"]:
         SystemMessage
     )
     chat = ChatAnthropic(
-        model="claude-instant-1.2", 
+        # model="claude-instant-1.2", 
+        model="claude-2", 
         max_tokens_to_sample=10000,
         streaming=True,
         verbose=True,
