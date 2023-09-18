@@ -43,18 +43,18 @@ if password == st.secrets["PASSWORD_KEY"]:
     transcript = st.text_input("Please enter your transcript: ")
     question = st.text_area("Please enter your question: ")
 
-    if st.button('Submit'):  # Added a button for submitting
-        if transcript and question:
-            nbm_template = """
-            
-            Based on this sales call help answer the users question
-            
-            ."""
-            messages = [
-                HumanMessage(content=f"""{nbm_template},  \n\n {transcript}, \n\n {question}""")
-            ]
-            answer = chat(messages)
+    
+    if transcript and question:
+        nbm_template = """
+        
+        Based on this sales call help answer the users question
+        
+        ."""
+        messages = [
+            HumanMessage(content=f"""{nbm_template},  \n\n {transcript}, \n\n {question}""")
+        ]
+        answer = chat(messages)
 
-            st.write(answer.content)
+        st.write(answer.content)
 else:
     st.error("The password you entered is incorrect. Please try again.")
