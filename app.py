@@ -34,27 +34,35 @@ if password == st.secrets["PASSWORD_KEY"]:
     )
     chat = ChatAnthropic(
         model="claude-instant-1.2", 
-        # model="claude-2", 
         max_tokens_to_sample=10000,
         streaming=True,
         verbose=True,
         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     )
     transcript = st.text_input("Please enter your transcript: ")
-    question = st.text_area("Please enter your question: ")
-
     
-    if transcript and question:
-        nbm_template = """
-        
-        Based on this sales call help answer the users question
-        
-        ."""
-        messages = [
-            HumanMessage(content=f"""{nbm_template},  \n\n {transcript}, \n\n {question}""")
-        ]
-        answer = chat(messages)
+    if st.button("Submit"):  # The addition of the submit button
+        if transcript:
+            nbm_template = """Summarize this call in
+            
+            Current State: 
+            
+            Future State: 
+            
+            Required Capabilities:
+            
+            Negative Consequences:
 
-        st.write(answer.content)
+            Roles/Responsibilities:
+
+            Next Steps:
+            
+            Format, make it detailed and business focused. Make sure you dont miss details mentioned in the call."""
+            messages = [
+                HumanMessage(content=f"""{nbm_template},  \n\n {transcript}""")
+            ]
+            answer = chat(messages)
+
+            st.write(answer.content)
 else:
     st.error("The password you entered is incorrect. Please try again.")
