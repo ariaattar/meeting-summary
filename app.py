@@ -14,15 +14,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
 password = st.text_input("Enter the password:", type="password")
 
 if password == st.secrets["PASSWORD_KEY"]:
     api_key = st.secrets["ANTHROPIC_API_KEY"]
     os.environ["ANTHROPIC_API_KEY"] = api_key
 
-    client = anthropic.Anthropic(
-        api_key=api_key,
-    )
+    client = anthropic.Anthropic()  # Remove the api_key parameter
+
 
     transcript = st.text_input("Please enter your transcript: ")
     question = st.text_area("Please enter your question: ")
