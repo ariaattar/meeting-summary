@@ -2,7 +2,11 @@ import streamlit as st
 import anthropic
 import os
 
+# Add this line to define the password_key
+password_key = os.environ.get('PASSWORD_KEY', 'default_password')
+
 st.markdown("<h1 style='color: green;'>🍃 Meeting Summarizer</h1>", unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
