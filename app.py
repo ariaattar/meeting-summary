@@ -2,8 +2,6 @@ import streamlit as st
 import anthropic
 import os
 
-# Add this line to define the password_key
-password_key = os.environ.get('PASSWORD_KEY', 'default_password')
 
 st.markdown("<h1 style='color: green;'>🍃 Meeting Summarizer</h1>", unsafe_allow_html=True)
 
@@ -18,7 +16,10 @@ st.markdown("""
 
 password = st.text_input("Enter the password:", type="password")
 
-if password == password_key:
+if password == st.secrets["PASSWORD_KEY"]:
+    api_key = st.secrets["ANTHROPIC_API_KEY"]
+    os.environ["ANTHROPIC_API_KEY"] = api_key
+
     client = anthropic.Anthropic(
         api_key=api_key,
     )
