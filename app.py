@@ -25,7 +25,12 @@ if password == password_key:
 
         transcript = st.text_input("Please enter your transcript: ")
         question = st.text_area("Please enter your question: ")
+        if st.button("Summarize in MongoDB Format"):
+            question = """Summarize this call in a way that collects all of this info:
 
+            Current state, future state, required capabilities, timeline/deadline, pain/goal/need? 
+
+            """
         if transcript and question:
             message = client.messages.create(
                 model="claude-3-haiku-20240307",
